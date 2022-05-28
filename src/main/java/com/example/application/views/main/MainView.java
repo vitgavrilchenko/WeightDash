@@ -27,7 +27,6 @@ public class MainView extends HorizontalLayout {
         Grid<Dashboard> dashboardGrid = new Grid<>(Dashboard.class);
         dashboardGrid.setColumns("percentage", "dailyAverage", "timeLeft");
         sideForm.setWidth("25em");
-        dashboardGrid.setWidth("25em");
         add(sideForm, dashboardGrid);
     }
 

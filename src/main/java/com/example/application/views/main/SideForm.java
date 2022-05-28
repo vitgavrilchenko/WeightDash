@@ -31,17 +31,17 @@ public class SideForm extends VerticalLayout {
         Grid<Weight> grid = new Grid<>(Weight.class);
         grid.setColumns("weight", "dateTime");
 
-        TextField weightField = new TextField("weight");
+        TextField weightField = new TextField("Введите свой вес");
 
         binder.forField(weightField).bind(Weight::getWeight, Weight::setWeight);
         binder.setBean(new Weight());
 
-        Button saveButton = new Button("Save");
+        Button saveButton = new Button("Сохранить");
         saveButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
         saveButton.addClickShortcut(Key.ENTER);
         saveButton.addClickListener(event -> save());
 
-        add(grid, weightField, saveButton);
+        add(weightField, saveButton, grid);
     }
 
     private void save() {
