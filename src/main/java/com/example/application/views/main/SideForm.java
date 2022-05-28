@@ -13,8 +13,12 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
 
 
+@Component
 public class SideForm extends VerticalLayout {
 
     @Autowired
@@ -22,12 +26,13 @@ public class SideForm extends VerticalLayout {
 
     Binder<Weight> binder = new Binder<>(Weight.class);
 
-    public SideForm() {
+    @PostConstruct
+    public void init() {
         Grid<Weight> grid = new Grid<>(Weight.class);
         grid.setColumns("weight", "dateTime");
 
         TextField weightField = new TextField("weight");
-        //binder.bindInstanceFields(this);
+
         binder.forField(weightField).bind(Weight::getWeight, Weight::setWeight);
         binder.setBean(new Weight());
 
