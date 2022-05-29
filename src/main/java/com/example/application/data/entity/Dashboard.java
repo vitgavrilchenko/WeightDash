@@ -13,7 +13,7 @@ public class Dashboard {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private double percentage;
-    private double dailyAverage;
+    private String percentage;
+    private String dailyAverage;
     private int timeLeft;
 }
