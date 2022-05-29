@@ -18,7 +18,6 @@ import javax.annotation.PostConstruct;
 @Route(value = "")
 @Component
 public class MainView extends HorizontalLayout {
-
     @Autowired
     private SideForm sideForm;
 
@@ -26,7 +25,9 @@ public class MainView extends HorizontalLayout {
     public void init() {
         Grid<Dashboard> dashboardGrid = new Grid<>(Dashboard.class);
         dashboardGrid.setColumns("percentage", "dailyAverage", "timeLeft");
+
         sideForm.setWidth("25em");
+
         add(sideForm, dashboardGrid);
     }
 
