@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
@@ -19,7 +18,7 @@ public class WeightService {
     @Autowired
     private WeightRepository weightRepository;
 
-    public void save(Weight weight) {
+    public void saveWeight(Weight weight) {
         //TODO удалить эту порнографию
         weight.setId(weightRepository.count() + 1);
 
@@ -28,8 +27,7 @@ public class WeightService {
     }
 
     public List<Weight> getWeightList() {
-        Iterable<Weight> all = weightRepository.findAll();
-        return Streamable.of(all).toList();
+        return Streamable.of(weightRepository.findAll()).toList();
     }
 
     public List<Dashboard> getDashboardList() {

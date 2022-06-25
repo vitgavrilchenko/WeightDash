@@ -44,7 +44,7 @@ public class MainView extends HorizontalLayout {
     private VerticalLayout getSideForm() {
         VerticalLayout sideFormLayout = new VerticalLayout();
         Grid<Weight> grid = new Grid<>(Weight.class);
-        grid.setColumns("weight", "dateTime");
+        grid.setColumns("dateTime", "weight");
 
         TextField weightField = new TextField("Введите свой вес");
         Binder<Weight> binder = new Binder<>(Weight.class);
@@ -61,7 +61,7 @@ public class MainView extends HorizontalLayout {
     }
 
     private void saveWeight(Weight weight, Grid<Weight> grid) {
-        weightService.save(weight);
+        weightService.saveWeight(weight);
         grid.setItems(weightService.getWeightList());
         dashboardGrid.setItems(weightService.getDashboardList());
 
